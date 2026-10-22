@@ -1,10 +1,10 @@
 import './index.css'
-import {SAMPLE_CARDS} from "./domain/card.js";
+import {collectionValue, formatPrice, SAMPLE_CARDS} from "./domain/card.js";
 import Panel from "./components/Panel.jsx";
 import CardGrid from "./components/CardGrid.jsx";
 import Summary from "./components/Summary.jsx";
 import {SearchBar} from "./components/SearchBar.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
 
@@ -30,6 +30,11 @@ function App() {
     card.name.toLowerCase().includes(query)
     && (rarity === "toutes" || card.rarity === rarity)
   );
+
+  const value = collectionValue(cards);
+  useEffect(() => {
+    document.title = `Ma collection (${formatPrice(value)})`;
+  }, [value]);
 
   return (
     <>
