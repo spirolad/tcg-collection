@@ -1,5 +1,5 @@
 
-const RARITIES = Object.freeze(['commune', 'peu-commune', 'rare', 'ultra-rare'])
+export const RARITIES = Object.freeze(['commune', 'peu-commune', 'rare', 'ultra-rare'])
 const SETS = Object.freeze(['Set de Base', 'Jungle', 'Fossile'])
 
 export class Card {
