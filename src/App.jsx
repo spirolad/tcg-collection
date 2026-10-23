@@ -9,14 +9,17 @@ import {useCards} from "./hooks/useCards.js";
 import {useDocumentTitle} from "./hooks/useDocumentTitle.js";
 import FavoritesCount from "./components/FavoritesCount.jsx";
 import {AddCardForm} from "./components/AddCardForm.jsx";
+import {CardNotes} from "./components/CardNotes.jsx";
 
 function App() {
 
   const {state, retry, changeQuantity, removeCard, addCard } = useCards();
   const [query, setQuery] = useState("");
   const [rarity, setRarity] = useState("toutes");
+  const [selectedId, setSelectedId] = useState(null);
 
   const cards = state.status === "success" ? state.cards : [];
+  const selectedCard = cards.find((card) => card.id === selectedId);
 
   const visibleCards = cards.filter((card) =>
     card.name.toLowerCase().includes(query.trim().toLowerCase())
@@ -50,6 +53,7 @@ function App() {
         <Panel title="Ajouter une carte" >
           <AddCardForm addCard={addCard} />
         </Panel>
+        {selectedCard && <CardNotes key={selectedCard.id} card={selectedCard} />}
         <div className="grid">
           <Panel title={`Mes cartes (${visibleCards.length} / ${cards.length})`}>
             <SearchBar
@@ -62,6 +66,8 @@ function App() {
               cards={visibleCards}
               onQuantityChange={changeQuantity}
               onRemove={removeCard}
+              selectedId={selectedId}
+              onSelect={setSelectedId}
             />
           </Panel>
         </div>
