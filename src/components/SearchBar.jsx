@@ -1,18 +1,24 @@
 import {parseRarity, RARITIES} from "../domain/card.js";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 
 export function SearchBar({ query, onQueryChange, rarity, onRarityChange }) {
+    const inputRef = useRef(null);
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape") {
                 onQueryChange("");
             }
+            if (e.key === "/") {
+                e.preventDefault();
+                inputRef.current.focus();
+            }
         };
         window.addEventListener("keydown", handleKeyDown);
     }, [onQueryChange]);
+
     return (
         <div className="toolbar" role="search">
-            <label>Recherche <input type="search" value={query} onChange={(e) => onQueryChange(e.target.value)} />
+            <label>Recherche <input type="search" value={query} onChange={(e) => onQueryChange(e.target.value)} ref={inputRef} />
             </label>
             <label>Rareté <select value={rarity} onChange={(e) => onRarityChange(parseRarity(e.target.value) ?? "toutes")}>
                 <option value="toutes">Toutes</option>
@@ -23,6 +29,11 @@ export function SearchBar({ query, onQueryChange, rarity, onRarityChange }) {
                 ))}
             </select>
             </label>
+            <button onClick={() => {
+                inputRef.current.focus();
+                onQueryChange("");
+                onRarityChange("toutes");
+            }} >Reset</button>
         </div>
     )
 }
