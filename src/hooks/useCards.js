@@ -29,6 +29,11 @@ export function useCards() {
         setAttempt((previous) => previous + 1);
     };
 
+    const addCard = (newCard) => {
+        newCard.id = crypto.randomUUID();
+        updateCards((previous) => [...previous, newCard]);
+    }
+
     useEffect(() => {
         let ignore = false;
         fetchCards().then((fetchedCards) => {
@@ -48,5 +53,5 @@ export function useCards() {
         };
     }, [attempt]);
 
-    return {state, retry, changeQuantity, removeCard};
+    return {state, retry, changeQuantity, removeCard, addCard };
 }

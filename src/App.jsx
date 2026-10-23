@@ -8,10 +8,11 @@ import {useState} from "react";
 import {useCards} from "./hooks/useCards.js";
 import {useDocumentTitle} from "./hooks/useDocumentTitle.js";
 import FavoritesCount from "./components/FavoritesCount.jsx";
+import {AddCardForm} from "./components/AddCardForm.jsx";
 
 function App() {
 
-  const {state, retry, changeQuantity, removeCard} = useCards();
+  const {state, retry, changeQuantity, removeCard, addCard } = useCards();
   const [query, setQuery] = useState("");
   const [rarity, setRarity] = useState("toutes");
 
@@ -46,6 +47,9 @@ function App() {
           <Summary cards={cards} />
           <FavoritesCount />
         </header>
+        <Panel title="Ajouter une carte" >
+          <AddCardForm addCard={addCard} />
+        </Panel>
         <div className="grid">
           <Panel title={`Mes cartes (${visibleCards.length} / ${cards.length})`}>
             <SearchBar
