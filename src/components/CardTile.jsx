@@ -1,11 +1,15 @@
 import {formatPrice, isRare} from "../domain/card.js";
 import RarityBadge from "./RarityBadge.jsx";
+import FavoriteButton from "./FavoriteButton.jsx";
 
 function CardTile({ card, children }) {
 
     return (
         <article className={`card-tile rarity-${card.rarity}`}>
-            <h3>{ card.name }</h3>
+            <div className="actions">
+                <h3>{ card.name }</h3>
+                <FavoriteButton cardId={card.id} />
+            </div>
             <p className="meta">{card.set} · <RarityBadge rarity={card.rarity} /></p>
             {isRare(card) && <p className="highlight">★ Carte rare</p>}
             {card.quantity > 0 ? (
