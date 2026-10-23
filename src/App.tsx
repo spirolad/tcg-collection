@@ -1,15 +1,15 @@
 import './index.css'
-import {collectionValue, formatPrice} from "./domain/card.js";
-import Panel from "./components/Panel.jsx";
-import CardGrid from "./components/CardGrid.jsx";
-import Summary from "./components/Summary.jsx";
-import {SearchBar} from "./components/SearchBar.jsx";
+import {collectionValue, formatPrice} from "./domain/card.ts";
+import Panel from "./components/Panel.tsx";
+import CardGrid from "./components/CardGrid.tsx";
+import Summary from "./components/Summary.tsx";
+import {SearchBar} from "./components/SearchBar.tsx";
 import {useState} from "react";
-import {useCards} from "./hooks/useCards.js";
-import {useDocumentTitle} from "./hooks/useDocumentTitle.js";
-import FavoritesCount from "./components/FavoritesCount.jsx";
-import {AddCardForm} from "./components/AddCardForm.jsx";
-import {CardNotes} from "./components/CardNotes.jsx";
+import {useCards} from "./hooks/useCards.ts";
+import {useDocumentTitle} from "./hooks/useDocumentTitle.ts";
+import FavoritesCount from "./components/FavoritesCount.tsx";
+import {AddCardForm} from "./components/AddCardForm.tsx";
+import {CardNotes} from "./components/CardNotes.tsx";
 
 function App() {
 

@@ -1,4 +1,4 @@
-import {useFavorites} from "../context/favorites.js";
+import {useFavorites} from "../context/favorites.ts";
 
 function FavoriteButton({cardId}) {
     const {favoriteIds, toggleFavorite} = useFavorites();

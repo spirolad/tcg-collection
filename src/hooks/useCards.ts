@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {fetchCards} from "../api/cards.js";
+import {fetchCards} from "../api/cards.ts";
 
 export function useCards() {
     const [state, setState] = useState({ status: "loading" });

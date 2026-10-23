@@ -1,5 +1,5 @@
-import CardTile from "./CardTile.jsx";
-import {QuantityControl} from "./QuantityControl.jsx";
+import CardTile from "./CardTile.tsx";
+import {QuantityControl} from "./QuantityControl.tsx";
 
 function CardGrid({ cards, onQuantityChange, onRemove, selectedId, onSelect }) {
     if (!cards || cards.length === 0) {

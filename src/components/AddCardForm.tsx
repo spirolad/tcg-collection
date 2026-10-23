@@ -1,5 +1,5 @@
 import {useRef, useState} from "react";
-import {parseRarity, RARITIES, SETS} from "../domain/card.js";
+import {parseRarity, RARITIES, SETS} from "../domain/card.ts";
 
 function validate(draft) {
     const errors = [];

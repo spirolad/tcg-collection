@@ -1,4 +1,4 @@
-import {collectionValue, copyCount, formatPrice} from "../domain/card.js";
+import {collectionValue, copyCount, formatPrice} from "../domain/card.ts";
 
 function Summary({ cards }) {
     return (

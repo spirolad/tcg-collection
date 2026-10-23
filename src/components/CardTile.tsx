@@ -1,6 +1,6 @@
-import {formatPrice, isRare} from "../domain/card.js";
-import RarityBadge from "./RarityBadge.jsx";
-import FavoriteButton from "./FavoriteButton.jsx";
+import {formatPrice, isRare} from "../domain/card.ts";
+import RarityBadge from "./RarityBadge.tsx";
+import FavoriteButton from "./FavoriteButton.tsx";
 
 function CardTile({ card, children, selected = false }) {
 

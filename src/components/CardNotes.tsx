@@ -1,4 +1,4 @@
-import Panel from "./Panel.jsx";
+import Panel from "./Panel.tsx";
 import {useState} from "react";
 
 export function CardNotes({ card }) {

@@ -1,4 +1,4 @@
-import {parseRarity, RARITIES} from "../domain/card.js";
+import {parseRarity, RARITIES} from "../domain/card.ts";
 import {useEffect, useRef} from "react";
 
 export function SearchBar({ query, onQueryChange, rarity, onRarityChange }) {
